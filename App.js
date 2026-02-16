@@ -1,14 +1,7 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  Button,
-} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import React from 'react';
 import Header from './components/redux/Header';
-import Product from './components/redux/Product';
+import Products from './components/redux/Products';
 
 const App = () => {
   const product = [
@@ -76,7 +69,7 @@ const App = () => {
       <ScrollView>
         <View style={styles.container}>
           {product.map(item => (
-            <Product item={item} />
+            <Products key={item.id} item={item} />
           ))}
         </View>
       </ScrollView>

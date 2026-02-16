@@ -1,11 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const cartData = useSelector(state => state.reducer);
+
+  const [cartItems, setCartItems] = useState(0);
+
+  useEffect(() => {
+    setCartItems(cartData.length);
+  }, [cartData]);
+
   return (
     <View style={styles.header}>
       <Text style={styles.title}>My Store</Text>
-      <Text style={{ color: '#fff' }}>🛒: 0</Text>
+      <Text style={{ color: '#fff' }}>🛒: {cartItems}</Text>
     </View>
   );
 };
